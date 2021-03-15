@@ -5,7 +5,7 @@ title: "computational neuroscience"
 ---
 
 # Computational Neuroscience
-Computation neuroscience proovides tools and methods for:
+Computation neuroscience provides tools and methods for:
 1. characterizing [what](https://github.com/sophiechenyang/sophiechenyang.github.io/blob/main/neuroscience.md#descriptive-model-of-cortical-receptive-fields) nervous systems do
 1. determining [how](https://github.com/sophiechenyang/sophiechenyang.github.io/blob/main/neuroscience.md#mechanistic-model-of) they function
 1. [why](http://google.com) they operate in participular ways 
