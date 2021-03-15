@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "computational neuroscience"
 permalink: /neuroscience/
+title: "computational neuroscience"
+---
 
 This is a section on neuroscience
