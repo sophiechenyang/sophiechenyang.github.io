@@ -20,7 +20,7 @@ visual cortex cell of a cat's brain
 #### Descriptive model of Receptive Fields 
 When a person looks at an object, the inverted image is projected onto the back of the eye on the retina. The layer of tissues called the retinall ganglion cells convey information about the image to the lateral geniculate nucleus (LGN), which in turn passes the information to the primary visual cortex in the back of the brain. You can find the receptive fields in the retina by flashing a spot of light on different locations of the retina. 
 
-**Center-Surround Receptive Fields in the Retina**
+##### Center-Surround Receptive Fields in the Retina
 
 An on-center, off-surround cell becomes more active when only the center of this area is illuminated and less active when the only edges of this area (the surround) are illuminated. Conversely, cells with an off-center, on-surround receptive field respond with increased activities when light is turned off in the center region and on in the surrounding region.  
 
