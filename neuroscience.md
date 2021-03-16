@@ -31,6 +31,13 @@ In the visual cortext, we can find cells that respond best to different orientat
 ![center-surroound receptive fields in the retina](https://i.imgur.com/qq685v8.png)
 
 #### Mechanistic Model of Receptive Fields
+The mechanistic model of receptive fields attempts to answer the question of how receptive fields are constructed using the neural circuitry of the visual cortex. In the Lateral Geniculate Nucleus (LGN), we find receptive fields that are center surround, similar to what is found in the retina. In the primary visual cortex (V1), we find receptive fields that are elongated at certain orientations. 
+
+![receptive fields in lgn and v1](https://i.imgur.com/STLcX6b.png)
+
+According to the model suggested by Hubel & Wiesel in the 1960s, V1 receptive fields are created from converging LGN signals. The center-surround LGN RFs are displaced along preferred orientation of the V1 cell. This model is considered quite controversial as it does not take into accounts the recurrent input to V1. 
+
+![mechanistic model of rf](https://i.imgur.com/c0NiRRp.png)
 
 #### Interpretive Model of Receptive Fields
 
