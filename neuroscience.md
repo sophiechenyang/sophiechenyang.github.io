@@ -43,12 +43,14 @@ According to the model suggested by Hubel & Wiesel in the 1960s, V1 receptive fi
 
 The interpretive model of receptive fields attempts to understand why receptive fields in v1 are shaped this way. In other words, what are the computational advantages of such receptive fields? 
 
-The elongated orientated bars do not span the entire retina, but only a small portion of it. Therefore, we can combine them to make a huge variety of images. Different algorithms can be used to generate an ideal of RFs for natural images based on two constraints:
+The elongated orientated bars do not span the entire retina, but only a small portion of it. Therefore, we can combine them to make a huge variety of images. Simillary, an image reconstruction I can be seen as a linear combination of a set of receptive fields where the multipliers are the strength of the response of a neuron (with a particular receptive field) to the visual stimulus.  Diifferent algorithms can be used to generate the ideal RFs that minimize the total squared pixelwise errors between I and I^ and are as independent as possible, including sparse coding ( Olshauren & Field, 1996), ICA ( Bell & Sejnowski, 1997) and predictive coding ( Rao & Balland, 1999). The RFs are chosen based on two selection criterias:
 
-1. **Efficient representation** -  Representing images using as few components as possible 
+1. **Efficient representation** -  representing images using as few components as possible 
 1. **Faithful representation** - accurate representation of important image features
 
-The RFs found by the algorithm match the RFs observed experimentally. This suggests that perhaps efficiency and faith representation were also the optimization criteria used during the evolution of the primary visual cortex. 
+The RFs found using efficient codiing algorithm on natural image patches match the RFs observed experimentally. This suggests that perhaps efficiency and faith representation were also the optimization criteria used during the evolution of the primary visual cortex. 
+
+![rf efficient algorithm](https://i.imgur.com/HFLYEII.png)
 
 
 ## Resources
