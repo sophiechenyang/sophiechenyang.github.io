@@ -48,7 +48,7 @@ The elongated orientated bars do not span the entire retina, but only a small po
 1. **Efficient representation** -  representing images using as few components as possible 
 1. **Faithful representation** - accurate representation of important image features
 
-The RFs found using efficient codiing algorithm on natural image patches match the RFs observed experimentally. This suggests that perhaps efficiency and faith representation were also the optimization criteria used during the evolution of the primary visual cortex. 
+The RFs found using efficient codiing algorithm on natural image patches match the RFs observed in V1. This suggests that perhaps efficiency and faith representation were also the optimization criteria used during the evolution of the primary visual cortex. 
 
 ![rf efficient algorithm](https://i.imgur.com/HFLYEII.png)
 
