@@ -8,7 +8,7 @@ title: "computational neuroscience"
 Computation neuroscience provides tools and methods for:
 1. characterizing [what](https://github.com/sophiechenyang/sophiechenyang.github.io/blob/main/neuroscience.md#descriptive-model-of-cortical-receptive-fields) nervous systems do
 1. determining [how](https://github.com/sophiechenyang/sophiechenyang.github.io/blob/main/neuroscience.md#mechanistic-model-of) they function
-1. [why](http://google.com) they operate in participular ways 
+1. [why](#interpretive-model-of-receptive-fields) they operate in participular ways 
 (P.Dayan and L. Abbott)
 
 Receptive field comprises of specific properties of a sensory stimulus that elicts a very robust or strong response from the cell. Examples may include spot of light that turns on at a _particular location_ on the retina, or bar of light that turns on at a _particular orientation_ and _location_ on the retina. 
