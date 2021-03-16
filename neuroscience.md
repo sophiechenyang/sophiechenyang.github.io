@@ -41,6 +41,16 @@ According to the model suggested by Hubel & Wiesel in the 1960s, V1 receptive fi
 
 #### Interpretive Model of Receptive Fields
 
+The interpretive model of receptive fields attempts to understand why receptive fields in v1 are shaped this way. In other words, what are the computational advantages of such receptive fields? 
+
+The elongated orientated bars do not span the entire retina, but only a small portion of it. Therefore, we can combine them to make a huge variety of images. Different algorithms can be used to generate an ideal of RFs for natural images based on two constraints:
+
+1. **Efficient representation** -  Representing images using as few components as possible 
+1. **Faithful representation** - accurate representation of important image features
+
+The RFs found by the algorithm match the RFs observed experimentally. This suggests that perhaps efficiency and faith representation were also the optimization criteria used during the evolution of the primary visual cortex. 
+
+
 ## Resources
 [Code repository of Neural Systems Modeling by Thomas J. Anastasio](https://github.com/vogdb/neural-systems-modeling-exercises)
 
