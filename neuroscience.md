@@ -34,3 +34,6 @@ In the visual cortext, we can find cells that respond best to different orientat
 
 #### Interpretive Model of Receptive Fields
 
+## Resources
+[Code repository of Neural Systems Modeling by Thomas J. Anastasio](https://github.com/vogdb/neural-systems-modeling-exercises)
+
