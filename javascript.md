@@ -3,7 +3,7 @@
 ## String methods
 
 **template strings** supports interpolation
-```javascript
+```
 I am learning ${language}`; //"I am learning Javascript"; 
 ```
 
