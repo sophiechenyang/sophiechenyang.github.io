@@ -3,7 +3,7 @@
 [Computational Neuroscience](https://sophiechenyang.github.io/neuroscience/) 
 My notes on the coursera course computational neuroscience 
 
-[test path in url](/neuroscience)
+[Javascript](/javascript)
 
 
 [second test path in url](/neuroscience.md)
