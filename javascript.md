@@ -18,3 +18,12 @@ const phoneNumber = "+103123456";
 phoneNumber.startsWith("+"); //true
 phoneNumber.startsWith("10"); //false
 ```
+
+## Numbers
+Convert from a number to string: [value.toString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
+Convert from string to number: [Number.parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)
+
+```javascript
+answer.toString(); // "42"
+Number.parseInt("42", 10); //42 The second argument is radix. Radix of 10 means we're using the decimal system)
+```
