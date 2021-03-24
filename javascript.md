@@ -25,5 +25,6 @@ Convert from string to number: [Number.parseInt()](https://developer.mozilla.org
 
 ```javascript
 answer.toString(); // "42"
-Number.parseInt("42", 10); //42 The second argument is radix. Radix of 10 means we're using the decimal system)
+Number.parseInt("42", 10); //42 The second argument is radix. 
+Radix of 10 means we're using the decimal system)
 ```
