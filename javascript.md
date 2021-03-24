@@ -2,9 +2,11 @@
 
 ## String methods
 
-**template strings** supports interpolation
+**Template strings** are created with the backtick character. It can span multiple lines and supports interpolation
 ```
-I am learning ${language}`; //"I am learning Javascript"; 
+`Hi there! 
+My name is ${name} and
+I am learning ${language}`; 
 ```
 
 [string.startsWith(searchString)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) returns true when a strinng starts with the substring\
