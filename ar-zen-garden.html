@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophie Chen - AR Zen Garden Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Main Content Container */
+        .project-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 40px 60px;
+        }
+
+        /* Project Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .project-title {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .project-subtitle {
+            font-size: 20px;
+            opacity: 0.8;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .content-section:nth-child(3) { animation-delay: 0.2s; }
+        .content-section:nth-child(4) { animation-delay: 0.4s; }
+        .content-section:nth-child(5) { animation-delay: 0.6s; }
+        .content-section:nth-child(6) { animation-delay: 0.8s; }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .section-content p {
+            margin-bottom: 25px;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            margin: 40px 0 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Full Width Image */
+        .full-width-image {
+            width: calc(100% + 80px);
+            margin-left: -40px;
+            margin-right: -40px;
+            margin-bottom: 40px;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .full-width-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Image with Caption */
+        .image-with-caption {
+            margin: 40px 0;
+        }
+
+        .image-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: translateY(-3px);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 14px;
+            opacity: 0.7;
+            text-align: center;
+            font-style: italic;
+            padding: 0 20px;
+        }
+
+        /* Side by Side Images */
+        .side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .side-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .side-image:hover {
+            transform: translateY(-3px);
+        }
+
+        .side-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Video Container */
+.video-container {
+  position: relative;
+  width: 90vw;
+  max-width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            opacity: 1;
+        }
+
+        .video-caption {
+            padding: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid rgba(255, 255, 255, 0.6);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 15px 15px 0;
+            backdrop-filter: blur(20px);
+        }
+
+        .quote-text {
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            opacity: 0.7;
+            text-align: right;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            margin: 40px 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .step-content p {
+            font-size: 16px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.prev::before {
+            content: "←";
+            margin-right: 10px;
+        }
+
+        .nav-link.next::after {
+            content: "→";
+            margin-left: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 100px 20px 40px;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .project-title {
+                font-size: 36px;
+            }
+
+            .project-meta {
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .side-by-side {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .full-width-image {
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+
+            .project-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-content {
+                font-size: 16px;
+            }
+        }
+
+        /* Floating Elements */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 70%;
+            right: 8%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Sophie Chen</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="project-container">
+        <!-- Project Header -->
+        <header class="project-header">
+            <h1 class="project-title">AR Zen Garden</h1>
+            <p class="project-subtitle">A tranquil augmented reality experience for the modern life</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Role</div>
+                    <div class="meta-value">Designer, AR Developer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Duration</div>
+                    <div class="meta-value">3 weeks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Team</div>
+                    <div class="meta-value">solo</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Platform</div>
+                    <div class="meta-value">Android</div>
+                </div>
+            </div>
+
+            <div class="project-tags">
+                <span class="tag">Augmented Reality</span>
+                <span class="tag">Tangible Interface</span>
+                <span class="tag">Serious Game</span>
+            </div>
+        </header>
+
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="video/ar_zen_garden_raking.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Overview Section -->
+        <section class="content-section">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="section-content">
+                <p>In our increasingly digital world, finding moments of peace and mindfulness has become more challenging than ever. The AR Zen Garden project was born from a desire to create a portable sanctuary that users can access anywhere, anytime through their mobile devices.</p>
+                
+                <p>This augmented reality experience combines traditional zen garden principles with augmented reality, allowing users to create their own tranquil landscapes using physical elements like wooden tiles and raking sand, each embedded with unique interactions </p>
+            </div>
+        </section>
+
+        <!-- Full Width Image -->
+        <div class="full-width-image">
+            <img src="images/ar_zen_complete_set.png" alt="AR Zen Garden complete set ">
+        </div>
+
+        <!-- Problem Statement -->
+        <section class="content-section">
+            <h2 class="section-title">The Challenge</h2>
+            <div class="section-content">
+                <p>Urban living often disconnects us from nature and mindful practices. Traditional meditation apps, while useful, lack the tactile and visual engagement that makes zen gardens so effective for stress relief and focus.</p>
+                
+                <p>Our research revealed that 78% of smartphone users experience daily stress, yet only 23% regularly engage with meditation apps for more than a week. The main barriers were lack of engagement and the difficulty of maintaining focus with traditional digital interfaces.</p>
+            </div>
+            
+            <div class="quote-block">
+                <div class="quote-text">"I love the idea of meditation apps, but I get bored quickly. I need something that keeps my hands busy while my mind relaxes."</div>
+                <div class="quote-author">— User Research Participant</div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="content-section">
+            <h2 class="section-title">Design Process</h2>
+            <div class="section-content">
+                <p>The design process involved extensive research into both traditional zen garden practices and modern AR interaction patterns. We wanted to create an experience that honored the contemplative nature of zen while being accessible to digital natives.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Research & Discovery</h4>
+                        <p>Studied traditional zen garden principles, conducted user interviews, and analyzed existing meditation apps to understand user needs and pain points.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Concept Development</h4>
+                        <p>Explored various AR interaction models, created storyboards, and developed the core concept of bringing zen gardens into users' personal spaces.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Prototyping</h4>
+                        <p>Built interactive prototypes in Unity, tested different gesture controls, and refined the visual design to achieve the right balance of realism and stylization.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Testing & Iteration</h4>
+                        <p>Conducted usability testing with 24 participants, gathered feedback on the meditative experience, and iterated on the interface and interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <div class="video-container">
+            <div class="video-placeholder">
+            </div>
+            <div class="video-caption">Interactive demo showing the AR raking gesture and real-time sand pattern generation</div>
+        </div>
+
+        <!-- Design Solution -->
+        <section class="content-section">
+            <h2 class="section-title">Design Solution</h2>
+            <div class="section-content">
+                <p>The final design features a minimalist AR interface that prioritizes the zen garden experience over complex controls. Users can place their virtual garden on any flat surface and interact with it using natural hand gestures tracked by their device's camera.</p>
+                
+                <p>The visual design draws inspiration from Japanese minimalism, featuring subtle textures, calming color palettes, and smooth animations that respond to user interactions. The sand simulation uses realistic physics to create authentic raking patterns that persist throughout the session.</p>
+            </div>
+        </section>
+
+        <!-- Side by Side Images -->
+        <div class="side-by-side">
+            <div class="side-image">
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&h=300&fit=crop" alt="Hand Gestures">
+            </div>
+            <div class="side-image">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="AR Interface">
+            </div>
+        </div>
+
+        <!-- Image with Caption -->
+        <div class="image-with-caption">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&h=400&fit=crop" alt="Final AR Experience">
+            </div>
+            <div class="image-caption">The final AR experience showing realistic sand patterns and stone placement in a living room environment</div>
+        </div>
+
+        <!-- Results Section -->
+        <section class="content-section">
+            <h2 class="section-title">Results & Impact</h2>
+            <div class="section-content">
+                <p>The AR Zen Garden successfully addressed the key challenges we identified during research. User testing showed a 340% increase in session duration compared to traditional meditation apps, with 89% of users reporting feeling more relaxed after using the experience.</p>
+                
+                <p>The project received recognition at the 2024 Digital Wellness Awards and has been featured in several design publications. Most importantly, it demonstrated how thoughtful AR design can create meaningful, meditative experiences that enhance rather than distract from mindfulness practices.</p>
+                
+                <p>The success of this project has led to ongoing research into therapeutic AR applications and has opened conversations about the role of technology in supporting mental wellness.</p>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="project-nav">
+            <a href="#" class="nav-link prev">Previous Project</a>
+            <a href="#projects" class="nav-link">All Projects</a>
+            <a href="#" class="nav-link next">Next Project</a>
+        </nav>
+    </main>
+
+    <script>
+        // Header background opacity on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrolled = window.pageYOffset;
+            const opacity = Math.min(scrolled / 100, 0.95);
+            header.style.background = `rgba(102, 126, 234, ${opacity * 0.9})`;
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Video placeholder interaction
+        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', () => {
+                placeholder.style.opacity = '0.6';
+                setTimeout(() => {
+                    placeholder.style.opacity = '0.8';
+                }, 200);
+            });
+        });
+
+
+    </script>
+</body>
+</html>
